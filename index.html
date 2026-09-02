@@ -1502,133 +1502,49 @@ document.addEventListener(
 
 
 /* ==================================================
-   SIMPLE MUSIC
+   MP3 MUSIC
 ================================================== */
 
-let audioContext = null;
+const bgMusic = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
 
 let musicPlaying = false;
 
-let musicTimer = null;
 
 function startMusic(){
 
-    if(musicPlaying)
-        return;
+    bgMusic.volume = 0.45;
 
-    audioContext =
-        new (
-            window.AudioContext ||
-            window.webkitAudioContext
-        )();
+    bgMusic.play()
+        .then(function(){
 
-    musicPlaying = true;
+            musicPlaying = true;
 
-    document.getElementById("musicBtn")
-        .innerHTML = "🔊";
+            musicBtn.innerHTML = "🔊";
 
-    playMelody();
+        })
+        .catch(function(error){
 
-}
+            console.log("Musik belum bisa diputar:", error);
 
-
-function playMelody(){
-
-    if(!musicPlaying)
-        return;
-
-    const notes = [
-
-        261.63,
-        329.63,
-        392.00,
-        329.63,
-
-        293.66,
-        349.23,
-        440.00,
-        349.23
-
-    ];
-
-    const start =
-        audioContext.currentTime;
-
-    notes.forEach((note,index)=>{
-
-        const osc =
-            audioContext.createOscillator();
-
-        const gain =
-            audioContext.createGain();
-
-        osc.type = "sine";
-
-        osc.frequency.value =
-            note;
-
-        gain.gain.setValueAtTime(
-            .0001,
-            start + index*.45
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .035,
-            start + index*.45+.05
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .0001,
-            start + index*.45+.4
-        );
-
-        osc.connect(gain);
-
-        gain.connect(
-            audioContext.destination
-        );
-
-        osc.start(
-            start + index*.45
-        );
-
-        osc.stop(
-            start + index*.45+.45
-        );
-
-    });
-
-    musicTimer =
-        setTimeout(
-            playMelody,
-            3600
-        );
+        });
 
 }
 
 
 function toggleMusic(){
 
-    if(!musicPlaying){
+    if(bgMusic.paused){
 
         startMusic();
 
     }else{
 
+        bgMusic.pause();
+
         musicPlaying = false;
 
-        clearTimeout(musicTimer);
-
-        document.getElementById("musicBtn")
-            .innerHTML = "🔇";
-
-        if(audioContext){
-
-            audioContext.close();
-
-            audioContext = null;
-
-        }
+        musicBtn.innerHTML = "🔇";
 
     }
 
