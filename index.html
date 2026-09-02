@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Cipeng ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#080308;
+    color:white;
+}
+
+/* ==============================
+   BACKGROUND
+============================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,80,140,.16),transparent 30%),
+        radial-gradient(circle at 80% 70%,rgba(180,50,120,.14),transparent 30%),
+        linear-gradient(135deg,#090309,#1b0712,#070207);
+    z-index:-3;
+}
+
+.stars{
+    position:fixed;
+    inset:0;
+    background-image:
+        radial-gradient(#fff 1px,transparent 1px),
+        radial-gradient(#fff 1px,transparent 1px);
+    background-size:80px 80px,130px 130px;
+    background-position:0 0,40px 60px;
+    opacity:.25;
+    animation:starMove 20s linear infinite;
+    z-index:-2;
+}
+
+@keyframes starMove{
+    from{transform:translateY(0)}
+    to{transform:translateY(80px)}
+}
+
+/* ==============================
+   MUSIC
+============================== */
+
+.music{
+    position:fixed;
+    right:20px;
+    top:20px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.25);
+    background:rgba(0,0,0,.3);
+    color:white;
+    z-index:1000;
+    cursor:pointer;
+}
+
+/* ==============================
+   SLIDES
+============================== */
+
+.slider{
+    position:relative;
+    width:100%;
+    height:100vh;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.05);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s;
+}
+
+.slide.active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
+}
+
+.content{
+    width:min(900px,100%);
+    max-height:92vh;
+    overflow-y:auto;
+    text-align:center;
+    padding:25px;
+    scrollbar-width:none;
+}
+
+.content::-webkit-scrollbar{
+    display:none;
+}
+
+/* ==============================
+   TEXT
+============================== */
+
+.serif{
+    font-family:'Cormorant Garamond',serif;
+}
+
+.mini{
+    color:#ff9cbd;
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(60px,12vw,120px);
+    line-height:.85;
+}
+
+h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(42px,8vw,75px);
+    line-height:1;
+    margin-bottom:25px;
+}
+
+h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;
+}
+
+p{
+    color:#eadfe4;
+    font-size:14px;
+    line-height:1.9;
+}
+
+.pink{
+    color:#ff94b8;
+}
+
+.heart-big{
+    font-size:65px;
+    animation:heartbeat 1.8s infinite;
+    display:block;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.2)}
+}
+
+/* ==============================
+   BUTTON
+============================== */
+
+.btn{
+    margin-top:30px;
+    padding:14px 30px;
+    border-radius:50px;
+    border:1px solid rgba(255,150,190,.5);
+    background:rgba(255,255,255,.05);
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    font-family:Poppins;
+}
+
+.btn:hover{
+    background:rgba(255,100,160,.15);
+    transform:translateY(-4px);
+    box-shadow:0 10px 35px rgba(255,60,130,.2);
+}
+
+/* ==============================
+   ENVELOPE
+============================== */
+
+.envelope-area{
+    perspective:1000px;
+    margin:35px auto;
+}
+
+.envelope{
+    position:relative;
+    width:min(330px,80vw);
+    height:210px;
+    margin:auto;
+    background:#f3dce4;
+    border-radius:5px;
+    box-shadow:0 20px 70px rgba(0,0,0,.5);
+    cursor:pointer;
+    transition:.7s;
+}
+
+.envelope:hover{
+    transform:translateY(-8px);
+}
+
+.envelope-front{
+    position:absolute;
+    inset:0;
+    background:#d98ba7;
+    clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);
+    z-index:4;
+}
+
+.envelope-flap{
+    position:absolute;
+    inset:0;
+    background:#e8b3c4;
+    clip-path:polygon(0 0,100% 0,50% 65%);
+    transform-origin:top;
+    transition:1s;
+    z-index:5;
+}
+
+.envelope.open .envelope-flap{
+    transform:rotateX(180deg);
+}
+
+.letter-paper{
+    position:absolute;
+    width:80%;
+    height:170px;
+    left:10%;
+    top:15px;
+    background:#fffafc;
+    color:#7b4055;
+    padding:20px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    z-index:2;
+    transition:1s;
+}
+
+.envelope.open .letter-paper{
+    transform:translateY(-120px);
+}
+
+/* ==============================
+   TYPING
+============================== */
+
+.typing{
+    min-height:80px;
+    max-width:700px;
+    margin:auto;
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    color:#f4dfe7;
+}
+
+/* ==============================
+   MEMORY POLAROIDS
+============================== */
+
+.memories{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin:35px auto;
+}
+
+.polaroid{
+    width:220px;
+    padding:10px 10px 20px;
+    background:#fff;
+    color:#3d2630;
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+    transition:.5s;
+}
+
+.polaroid:nth-child(1){
+    transform:rotate(-6deg);
+}
+
+.polaroid:nth-child(2){
+    transform:rotate(3deg);
+}
+
+.polaroid:nth-child(3){
+    transform:rotate(-2deg);
+}
+
+.polaroid:hover{
+    transform:rotate(0) translateY(-15px) scale(1.04);
+}
+
+.polaroid img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    background:#eee;
+}
+
+.polaroid p{
+    color:#3d2630;
+    font-family:'Cormorant Garamond',serif;
+    font-size:19px;
+    margin-top:10px;
+}
+
+/* ==============================
+   CARD
+============================== */
+
+.card{
+    max-width:720px;
+    margin:auto;
+    padding:30px;
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,170,200,.15);
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+/* ==============================
+   SECRET BUTTONS
+============================== */
+
+.secret-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.secret-btn{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:1px solid rgba(255,150,190,.4);
+    background:rgba(255,255,255,.05);
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.secret-btn:hover{
+    transform:scale(1.1);
+}
+
+.secret-btn.clicked{
+    background:rgba(255,100,160,.3);
+}
+
+.hidden-message{
+    display:none;
+    margin-top:30px;
+    animation:appear 1s ease;
+}
+
+.hidden-message.show{
+    display:block;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ==============================
+   FINAL
+============================== */
+
+.final-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(55px,11vw,110px);
+    color:#ff94b8;
+}
+
+.quote{
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    font-style:italic;
+    max-width:650px;
+    margin:25px auto;
+    color:#f5dfe7;
+}
+
+/* ==============================
+   FLOATING HEART
+============================== */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:500;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    animation:floatHeart linear forwards;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) rotate(0) scale(.6);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(25deg) scale(1.3);
+        opacity:0;
+    }
+}
+
+/* ==============================
+   FIREWORK
+============================== */
+
+.firework{
+    position:fixed;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:2000;
+    animation:boom 1.2s ease-out forwards;
+}
+
+@keyframes boom{
+    from{
+        transform:translate(0,0) scale(1);
+        opacity:1;
+    }
+
+    to{
+        transform:translate(var(--x),var(--y)) scale(.1);
+        opacity:0;
+    }
+}
+
+/* ==============================
+   PROGRESS
+============================== */
+
+.progress{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:7px;
+    z-index:1000;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    background:rgba(255,255,255,.25);
+    border-radius:50%;
+    transition:.3s;
+}
+
+.dot.active{
+    width:25px;
+    background:#ff8fb5;
+}
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:650px){
+
+    .content{
+        padding:15px;
+    }
+
+    .polaroid{
+        width:170px;
+    }
+
+    .polaroid img{
+        height:145px;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    p{
+        font-size:13px;
+    }
+
+    .typing{
+        font-size:22px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+<div class="hearts" id="hearts"></div>
+
+<button class="music" onclick="toggleMusic()" id="musicBtn">
+♫
+</button>
+
+<div class="slider">
+
+
+<!-- ==================================================
+     SLIDE 1 — OPENING
+================================================== -->
+
+<section class="slide active">
+
+<div class="content">
+
+<div class="mini">
+A little birthday surprise
+</div>
+
+<span class="heart-big">♡</span>
+
+<h1>
+    For<br>
+    <span class="pink">Cipeng.</span>
+</h1>
+
+<p>
+    dari seseorang yang mungkin<br>
+    masih mengingat terlalu banyak hal.
+</p>
+
+<button class="btn" onclick="openEnvelope()">
+    Open the letter 💌
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 2 — ENVELOPE
+================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="mini">
+Something was waiting for you
+</div>
+
+<h2>
+    Untuk <span class="pink">Ivan.</span>
+</h2>
+
+<div class="envelope-area">
+
+<div class="envelope" id="envelope" onclick="openLetter()">
+
+<div class="letter-paper">
+    Untuk Cipeng ❤️<br>
+    <small>
+        buka perlahan...
+    </small>
+</div>
+
+<div class="envelope-flap"></div>
+
+<div class="envelope-front"></div>
+
+</div>
+
+</div>
+
+<p id="envelopeText">
+    klik amplopnya.
+</p>
+
+<button class="btn" onclick="nextSlide()">
+    Lanjut →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 3 — BIRTHDAY
+================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="mini">
+22 September 2005
+</div>
+
+<h2>
+    Happy Birthday
+</h2>
+
+<div class="final-name">
+    Ivan ❤️
+</div>
+
+<div class="typing" id="typingText"></div>
+
+<button class="btn" onclick="nextSlide()">
+    Ada sesuatu yang aku ingat... →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 4 — MEMORIES
+================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="mini">
+our little memories
+</div>
+
+<h2>
+    Masih ingat?
+</h2>
+
+<p>
+    Beberapa hal mungkin sederhana,<br>
+    tapi ternyata susah untuk benar-benar dilupakan.
+</p>
+
+<div class="memories">
+
+<div class="polaroid">
+
+<img src="foto1.jpg" alt="Kenangan 1">
+
+<p>
+    main ke rumah<br>
+    habis pulang sekolah
+</p>
+
+</div>
+
+
+<div class="polaroid">
+
+<img src="foto2.jpg" alt="Kenangan 2">
+
+<p>
+    ketemu waktu<br>
+    aku ke Balikpapan
+</p>
+
+</div>
+
+
+<div class="polaroid">
+
+<img src="foto3.jpg" alt="Kenangan 3">
+
+<p>
+    motoran<br>
+    berdua
+</p>
+
+</div>
+
+</div>
+
+<button class="btn" onclick="nextSlide()">
+    Next memory →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 5 — GRATITUDE
+================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="mini">
+something I am grateful for
+</div>
+
+<h2>
+    Aku bersyukur...
+</h2>
+
+<div class="card">
+
+<p>
+    Aku bersyukur banget bisa ketemu
+    orang sebaik kamu.
+</p>
+
+<br>
+
+<p>
+    Aku juga bersyukur pernah menjadi
+    teman sekaligus mantan kamu.
+</p>
+
+<br>
+
+<p>
+    Walaupun hubungan kita nggak berlangsung lama,
+    kamu tetap punya tempat tersendiri
+    di hati aku.
+</p>
+
+<br>
+
+<p class="pink">
+    Karena ternyata, waktu yang singkat
+    tetap bisa meninggalkan cerita
+    yang panjang.
+</p>
+
+</div>
+
+<button class="btn" onclick="nextSlide()">
+    Ada surat untuk kamu →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 6 — LETTER
+================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="mini">
+from upii
+</div>
+
+<h2>
+    A letter for you.
+</h2>
+
+<div class="card">
+
+<p>
+    PIBESDAYYY MY MANTAN KANDUNG AKUU!!! 🤩🫰❤️
+</p>
+
+<br>
+
+<p>
+    Semoga di umur yang makin dewasa ini
+    kamu semakin bijaksana lagi.
+</p>
+
+<br>
+
+<p>
+    Semangatt untuk pelatihan dan kerja kamu nanti.
+    Jangan mikirin hal-hal yang membuat diri kamu stress.
+    Fokus ke pelatihannya yaa.
+</p>
+
+<br>
+
+<p>
+    Biar kamu bisa buktiin ke orang tua kamu
+    kalau kamu bisa untuk ngebahagiain mereka juga.
+</p>
+
+<br>
+
+<p>
+    Dijaga kesehatannya selama di sana,
+    tidur yang cukup dan jangan tinggalin
+    shalat 5 waktunya ya.
+</p>
+
+<br>
+
+<p>
+    Semua doa dan harapanmu aku doakan
+    semoga segera terwujud.
+</p>
+
+<br>
+
+<p class="pink">
+    Wish u all the bestt ✨️
+</p>
+
+</div>
+
+<button class="btn" onclick="nextSlide()">
+    Next →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 7 — WISH
+================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="mini">
+my wish for you
+</div>
+
+<h2>
+    Tolong jangan lupa...
+</h2>
+
+<div class="card">
+
+<p>
+    Semoga kamu lebih peduli sama diri sendiri.
+</p>
+
+<br>
+
+<p>
+    Jangan terlalu mikirin hal yang bikin
+    diri kamu jadi down.
+</p>
+
+<br>
+
+<p>
+    Semoga pikiranmu lebih terbuka
+    untuk kedepannya.
+</p>
+
+<br>
+
+<p>
+    Hindari hal-hal yang toxic.
+</p>
+
+<br>
+
+<h3 class="pink">
+    Dan jangan ngebohongin diri sendiri.
+</h3>
+
+</div>
+
+<button class="btn" onclick="nextSlide()">
+    Ada satu rahasia... 👀
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 8 — SECRET
+================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="mini">
+secret message
+</div>
+
+<h2>
+    Kamu harus menemukan<br>
+    <span class="pink">3 hati.</span>
+</h2>
+
+<p>
+    klik ketiga tombol di bawah ini.
+</p>
+
+<div class="secret-buttons">
+
+<button class="secret-btn" onclick="heartClicked(this)">
+♡
+</button>
+
+<button class="secret-btn" onclick="heartClicked(this)">
+♡
+</button>
+
+<button class="secret-btn" onclick="heartClicked(this)">
+♡
+</button>
+
+</div>
+
+<div class="hidden-message" id="secretMessage">
+
+<div class="card">
+
+<p>
+    ternyata...
+</p>
+
+<br>
+
+<h3 class="pink">
+    aku masih peduli sama kamu.
+</h3>
+
+<br>
+
+<p>
+    Mungkin aku nggak selalu bilang,
+    tapi aku berharap kamu baik-baik aja
+    di mana pun kamu berada.
+</p>
+
+</div>
+
+<button class="btn" onclick="nextSlide()">
+    Satu halaman terakhir →
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 9 — FINAL
+================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="mini">
+this isn't goodbye
+</div>
+
+<h2>
+    Untuk kamu,
+</h2>
+
+<div class="final-name">
+    Ivann.
+</div>
+
+<div class="quote">
+    "Semoga setelah fase pelatihan itu,
+    kita masih bisa menemukan jalan
+    untuk saling menyapa lagi."
+</div>
+
+<div class="card">
+
+<p>
+    I wish nanti setelah fase pelatihan itu,
+    kita masih tetap bisa komunikasi yaa.
+</p>
+
+<br>
+
+<p>
+    Dan nggak ada kata asing lagi
+    di antara kita.
+</p>
+
+<br>
+
+<p>
+    Kamu harus janji yaaa kalau kita
+    nggak bakal lost contact lagii 🫰
+</p>
+
+<br>
+
+<p>
+    Aku nggak bakalan bisa lupa sama kamu,
+    walaupun kita harus lost lagi selama
+    6 bulan itu.
+</p>
+
+<br>
+
+<p class="pink">
+    Dan satu hal yang perlu kamu tau...
+</p>
+
+<br>
+
+<h3>
+    aku bakalan rindu banget
+    sama kamuuu, Ivann. ❤️
+</h3>
+
+</div>
+
+<button class="btn" onclick="finalCelebrate()">
+    🎁 Open Your Final Gift
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 10 — END
+================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<span class="heart-big">
+    ❤️
+</span>
+
+<div class="mini">
+from someone who remembers
+</div>
+
+<h2>
+    Happy Birthday,<br>
+    <span class="pink">Cipeng.</span>
+</h2>
+
+<div class="quote">
+    "Be happy.<br>
+    Be better.<br>
+    And please, take care of yourself."
+</div>
+
+<p>
+    Terima kasih sudah pernah menjadi
+    bagian dari cerita hidup aku.
+</p>
+
+<br>
+
+<p class="pink">
+    — upii 🫰
+</p>
+
+<button class="btn" onclick="restart()">
+    ↻ lihat dari awal
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress" id="progress"></div>
+
+
+<script>
+
+/* ==================================================
+   SLIDE SYSTEM
+================================================== */
+
+const slides = document.querySelectorAll(".slide");
+
+const progress = document.getElementById("progress");
+
+let currentSlide = 0;
+
+slides.forEach((slide,index)=>{
+
+    const dot = document.createElement("div");
+
+    dot.className = "dot";
+
+    if(index === 0){
+        dot.classList.add("active");
+    }
+
+    dot.onclick = ()=>{
+        goToSlide(index);
+    };
+
+    progress.appendChild(dot);
+
+});
+
+
+function updateSlide(){
+
+    slides.forEach((slide,index)=>{
+
+        slide.classList.toggle(
+            "active",
+            index === currentSlide
+        );
+
+    });
+
+    document.querySelectorAll(".dot").forEach((dot,index)=>{
+
+        dot.classList.toggle(
+            "active",
+            index === currentSlide
+        );
+
+    });
+
+    if(currentSlide === 2){
+
+        startTyping();
+
+    }
+
+}
+
+
+function nextSlide(){
+
+    if(currentSlide < slides.length-1){
+
+        currentSlide++;
+
+        updateSlide();
+
+    }
+
+}
+
+
+function goToSlide(index){
+
+    currentSlide = index;
+
+    updateSlide();
+
+}
+
+
+function restart(){
+
+    currentSlide = 0;
+
+    updateSlide();
+
+}
+
+
+/* ==================================================
+   ENVELOPE
+================================================== */
+
+function openEnvelope(){
+
+    startMusic();
+
+    nextSlide();
+
+}
+
+
+function openLetter(){
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const text =
+        document.getElementById("envelopeText");
+
+    envelope.classList.toggle("open");
+
+    if(envelope.classList.contains("open")){
+
+        text.innerHTML =
+            "Ada sesuatu di dalamnya... ❤️";
+
+    }else{
+
+        text.innerHTML =
+            "klik amplopnya.";
+
+    }
+
+}
+
+
+/* ==================================================
+   TYPING EFFECT
+================================================== */
+
+let typingStarted = false;
+
+function startTyping(){
+
+    if(typingStarted) return;
+
+    typingStarted = true;
+
+    const text =
+        "Semoga di umur yang baru ini, kamu selalu menemukan alasan untuk tersenyum. Dan semoga semua hal baik yang kamu perjuangkan, perlahan datang menghampiri kamu. ❤️";
+
+    const element =
+        document.getElementById("typingText");
+
+    let i = 0;
+
+    function type(){
+
+        if(i < text.length){
+
+            element.innerHTML += text.charAt(i);
+
+            i++;
+
+            setTimeout(type,45);
+
+        }
+
+    }
+
+    type();
+
+}
+
+
+/* ==================================================
+   SECRET HEARTS
+================================================== */
+
+let heartsClicked = 0;
+
+function heartClicked(button){
+
+    if(button.classList.contains("clicked"))
+        return;
+
+    button.classList.add("clicked");
+
+    button.innerHTML = "♥";
+
+    heartsClicked++;
+
+    createHeart();
+
+    if(heartsClicked === 3){
+
+        setTimeout(()=>{
+
+            document
+                .getElementById("secretMessage")
+                .classList.add("show");
+
+        },500);
+
+    }
+
+}
+
+
+/* ==================================================
+   FLOATING HEARTS
+================================================== */
+
+const hearts =
+    document.getElementById("hearts");
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    const symbols = [
+        "♡","♥","❤","🤍","💗","💖"
+    ];
+
+    heart.innerHTML =
+        symbols[
+            Math.floor(
+                Math.random()*symbols.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random()*100 + "%";
+
+    heart.style.fontSize =
+        12 + Math.random()*25 + "px";
+
+    heart.style.animationDuration =
+        5 + Math.random()*7 + "s";
+
+    hearts.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },13000);
+
+}
+
+setInterval(createHeart,700);
+
+
+/* ==================================================
+   FIREWORKS
+================================================== */
+
+function finalCelebrate(){
+
+    for(let i=0;i<160;i++){
+
+        const particle =
+            document.createElement("div");
+
+        particle.className = "firework";
+
+        particle.style.left =
+            (35 + Math.random()*30) + "%";
+
+        particle.style.top =
+            (30 + Math.random()*25) + "%";
+
+        particle.style.setProperty(
+            "--x",
+            ((Math.random()-.5)*700)+"px"
+        );
+
+        particle.style.setProperty(
+            "--y",
+            ((Math.random()-.5)*600)+"px"
+        );
+
+        document.body.appendChild(particle);
+
+        setTimeout(()=>{
+            particle.remove();
+        },1300);
+
+    }
+
+    for(let i=0;i<40;i++){
+
+        setTimeout(()=>{
+            createHeart();
+        },i*70);
+
+    }
+
+    setTimeout(()=>{
+        nextSlide();
+    },900);
+
+}
+
+
+/* ==================================================
+   SWIPE
+================================================== */
+
+let startX = 0;
+
+document.addEventListener(
+    "touchstart",
+    function(e){
+
+        startX =
+            e.changedTouches[0].screenX;
+
+    }
+);
+
+
+document.addEventListener(
+    "touchend",
+    function(e){
+
+        const endX =
+            e.changedTouches[0].screenX;
+
+        if(endX < startX-60){
+
+            nextSlide();
+
+        }
+
+        if(endX > startX+60){
+
+            if(currentSlide > 0){
+
+                currentSlide--;
+
+                updateSlide();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   KEYBOARD
+================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "ArrowRight")
+            nextSlide();
+
+        if(e.key === "ArrowLeft" && currentSlide > 0){
+
+            currentSlide--;
+
+            updateSlide();
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   SIMPLE MUSIC
+================================================== */
+
+let audioContext = null;
+
+let musicPlaying = false;
+
+let musicTimer = null;
+
+function startMusic(){
+
+    if(musicPlaying)
+        return;
+
+    audioContext =
+        new (
+            window.AudioContext ||
+            window.webkitAudioContext
+        )();
+
+    musicPlaying = true;
+
+    document.getElementById("musicBtn")
+        .innerHTML = "🔊";
+
+    playMelody();
+
+}
+
+
+function playMelody(){
+
+    if(!musicPlaying)
+        return;
+
+    const notes = [
+
+        261.63,
+        329.63,
+        392.00,
+        329.63,
+
+        293.66,
+        349.23,
+        440.00,
+        349.23
+
+    ];
+
+    const start =
+        audioContext.currentTime;
+
+    notes.forEach((note,index)=>{
+
+        const osc =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+        osc.type = "sine";
+
+        osc.frequency.value =
+            note;
+
+        gain.gain.setValueAtTime(
+            .0001,
+            start + index*.45
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .035,
+            start + index*.45+.05
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            start + index*.45+.4
+        );
+
+        osc.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+        osc.start(
+            start + index*.45
+        );
+
+        osc.stop(
+            start + index*.45+.45
+        );
+
+    });
+
+    musicTimer =
+        setTimeout(
+            playMelody,
+            3600
+        );
+
+}
+
+
+function toggleMusic(){
+
+    if(!musicPlaying){
+
+        startMusic();
+
+    }else{
+
+        musicPlaying = false;
+
+        clearTimeout(musicTimer);
+
+        document.getElementById("musicBtn")
+            .innerHTML = "🔇";
+
+        if(audioContext){
+
+            audioContext.close();
+
+            audioContext = null;
+
+        }
+
+    }
+
+}
+
+
+/* ==================================================
+   START
+================================================== */
+
+updateSlide();
+
+</script>
+
+</body>
+</html>
